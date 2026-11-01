@@ -1,0 +1,41 @@
+/* =========================================================================
+   Mercat Asistent - Hoja de Estilos Principal (CSS Nativo Estándar)
+   ========================================================================= */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #fbf9f6;
+  color: #1b1c1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ocultar barra de scroll para una visualización limpia */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Animación del láser escáner en el smartphone mockup */
+.laser-scan-anim {
+  animation: laserSweep 2s ease-in-out infinite alternate;
+}
+
+@keyframes laserSweep {
+  0% {
+    transform: translateY(-70px);
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(70px);
+    opacity: 0.45;
+  }
+}

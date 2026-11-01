@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="mercatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00652c"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#mercatGrad)"/>
+  <!-- Cesta de la compra estilizada -->
+  <path d="M14 20h20l-2.2 14.3a3 3 0 0 1-3 2.7h-9.6a3 3 0 0 1-3-2.7L14 20z" fill="#ffffff" fill-opacity="0.95"/>
+  <path d="M19 20v-4a5 5 0 0 1 10 0v4" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" fill="none"/>
+  <!-- Rayo / destello escáner -->
+  <circle cx="34" cy="14" r="3" fill="#86efac"/>
+</svg>
