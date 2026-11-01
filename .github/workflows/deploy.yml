@@ -1,0 +1,46 @@
+name: Desplegar Mercat Web en GitHub Pages
+
+on:
+  # Se ejecuta automáticamente en cada push a la rama main
+  push:
+    branches:
+      - main
+  # Permite lanzar el despliegue manualmente desde la pestaña Actions en GitHub
+  workflow_dispatch:
+
+# Permisos requeridos para que GitHub Pages pueda publicar el contenido
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite solo un despliegue concurrente para evitar colisiones
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Descarga el código del repositorio
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      # 2. Configura GitHub Pages
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      # 3. Empaqueta el sitio web estático (raíz del proyecto)
+      - name: Subir artefacto para GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      # 4. Despliega en la infraestructura de GitHub Pages
+      - name: Desplegar a GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
